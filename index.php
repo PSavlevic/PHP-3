@@ -1,3 +1,12 @@
+<?php
+$x = rand(1, 10);
+$text = "Tai yra $x ciklas";
+
+for ($z = 0; $z < $x; $z++) {
+    print "Tai yra $z-tasis ciklas <br>";
+}
+
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,7 +18,6 @@
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<p>color</p>
 
 </body>
 </html>
