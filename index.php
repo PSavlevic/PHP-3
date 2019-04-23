@@ -1,23 +1,33 @@
 <?php
-$x = rand(1, 10);
-$text = "Tai yra $x ciklas";
 
-for ($z = 0; $z < $x; $z++) {
-    print "Tai yra $z-tasis ciklas <br>";
+$months = 12;
+$kisene = 1000;
+$alga = 700;
+
+for ($months = 12; $months>0; $months--) {
+    $islaidos = rand(100, 1200);
+    $balansas = $kisene + $alga - $islaidos;
+
+    if ($balansas <= 0) {
+        print 'Tau pzdc';
+        break;
+    } else {
+        $kisene = $balansas;
+    }
 }
 
+$text = "likutis $kisene";
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="refresh" content="1">
-    <title>title</title>
-    <link rel="stylesheet" href="css/normalize.css">
-    <link rel="stylesheet" href="css/grid.css">
-    <link rel="stylesheet" href="css/style.css">
+    <title>20190423</title>
 </head>
 <body>
-
+<section>
+    <p>
+        <?php print $text; ?>
+    </p>
+</section>
 </body>
 </html>
