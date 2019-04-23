@@ -1,23 +1,22 @@
 <?php
 
-$kates = rand(1, 3);
-$sunys = rand(1, 3);
+$months = 12;
+$kisene = 1000;
+$alga = 700;
 
-$katasuniai = 0;
+for ($months = 0; $months < 12; $months++) {
+    $islaidos = rand(400, 1200);
+    $balansas = $kisene + $alga - $islaidos;
 
-for ($k = 1; $k <= $kates; $k++) {
-    for ($s = 1; $s <= $sunys; $s++) {
-        $success = rand(0, 1);
-
-        if ($success) {
-            $katasuniai++;
-            break;
-        }
+    if ($balansas <= 0) {
+        print "Tau pzdc per $months menesiu";
+        break;
+    } else {
+        $kisene = $balansas;
     }
 }
 
-$text = "Event`e dalyvavo $kates kates ir $sunys sunys.<br>"
-    . "Katasuniu iseiga: $katasuniai";
+$text = "likutis $kisene";
 ?>
 <!DOCTYPE html>
 <html>
