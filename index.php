@@ -22,21 +22,33 @@ for ($day = 1; $day <= 365; $day++) {
 }
 $viso_hours = round($viso_min / 60);   // 5 uzduotis
 
-
-
 $kainuos = round($surukyta / 20 * 3.75);
 $text = "Per metus surukysiu $surukyta cigareciu uz $kainuos eur.";
 $kainuos2 = round($surukyta2 / 20 * 3.75);
 $text2 = "Nerukydamas pirmadieni-ketvirtaideni sutaupyciau $kainuos2 eur.";
 $text3 = "Per metus prastovesiu $viso_hours valandu traukdamas"; // 5 uzduotis
+
 ?>
 <html>
 <head>
     <title>main</title>
+    <style>
+        img {
+            width: 30px;
+            height: 30px;
+        }
+    </style>
 </head>
 <body>
-<P>
-    <?php print $text . ' ' . $text2 . '<br> ' . $text3;?>
-</P>
+<p>
+    <?php print $text . ' ' . $text2 . '<br> ' . $text3 . '<br><br>';?>
+</p>
+
+<div class="container">
+    <?php for ($n = 0; $n < $surukyta; $n++):?>
+        <img src="https://image.flaticon.com/icons/svg/1673/1673015.svg" alt="cig">
+    <?php endfor; ?>
+</div>
+
 </body>
 </html>
