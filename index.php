@@ -1,17 +1,15 @@
 <?php
-
 $months = 24;
-$car_price_new = 30000;
-$car_price_left = $car_price_new;
+$car_new_price = 30000;
+$car_price = $car_new_price;
+$car_price_used = $car_new_price - $car_price;
+$procentaliai = (($car_price / $car_new_price) * 100);
 
-for ($months; $months > 0; --$months) {
-    $car_price_left -= $car_price_left * 0.02;
-//    print $car_price_left . '<br>';
+for ($i=1; $i <= 24; $i++) {
+    $car_price -= round($car_price * 0.02);
+    print "$car_price po $i ciklu" . "<br>";
 }
-
-$depreciated = 100 - (($car_price_left / $car_price_new)*100);
-$text = "Po 24 menesiu masinos verte bus: $car_price_left ir nuvertejo $depreciated procentu.";
-
+  $text = "Po 24 menesiu, masinos verte bus $car_price. ";
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,6 +18,8 @@ $text = "Po 24 menesiu masinos verte bus: $car_price_left ir nuvertejo $deprecia
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<p><?php print $text; ?></p>
+<section>
+ <?php print $text; ?>
+</section>
 </body>
 </html>
