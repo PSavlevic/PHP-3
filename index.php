@@ -1,25 +1,25 @@
 <?php
-$months = 24;
-$car_new_price = 30000;
-$car_price = $car_new_price;
-$car_price_used = $car_new_price - $car_price;
-$procentaliai = (($car_price / $car_new_price) * 100);
 
-for ($i=1; $i <= 24; $i++) {
-    $car_price -= round($car_price * 0.02);
-    print "$car_price po $i ciklu" . "<br>";
+$car_price_new = 30000; //Eurų
+$car_price = $car_price_new; // (% nuo esamos vertės per mėnesį)
+$santaupos = 15000;
+
+for ($m = 0; $car_price >= $santaupos; $m++){
+    $car_price -= round($car_price*0.02);
+    print "Car price at $m = $car_price<br>";
 }
-  $text = "Po 24 menesiu, masinos verte bus $car_price. ";
+
+$likutis = $santaupos - $car_price;
+$text = "Po $m menesiu, masinos verte bus $car_price. nusipirkus tau dar liks $likutis eur.";
+
 ?>
-<!DOCTYPE html>
 <html>
 <head>
-    <title>ciklai</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <title>asdv</title>
 </head>
 <body>
-<section>
- <?php print $text; ?>
-</section>
+<p>
+    <?php print $text; ?>
+</p>
 </body>
 </html>
