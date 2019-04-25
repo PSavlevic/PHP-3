@@ -1,45 +1,14 @@
 <?php
 
-$saldytuvas = [
-    'pirma_lentyna' => [
-        'kiausiniai' => [
-            'name' => 'Pizdati kiausiniai',
-            'kiekis' => 3,
-        ],
-        'grietine' => [
-            'name' => 'Dvaro grietine',
-            'kiekis' => 1,
-        ],
-        'jogurtas' => [
-            'name' => 'Vilkavyskiu jogurtas',
-            'kiekis' => 2,
-        ],
-        'zuvis' => [
-            'name' => 'Zuvis',
-            'kiekis' => 0,
-        ],
-    ],
-    'antra_lentyna' => [
-        'pienas' => [
-            'name' => 'Dvaro pienas',
-            'kiekis' => 1,
-        ],
-        'kefyras' => [
-            'name' => 'Kefyras',
-            'kiekis' => 0,
-        ],
-        'degtine' => [
-            'name' => 'Stumbro degtine',
-            'kiekis' => 2,
-        ],
-        'kecupas' => [
-            'name' => 'Kucupas"Cumak"',
-            'kiekis' => 2,
-        ],
-    ],
-];
+$viso = 0;
 
-var_dump($saldytuvas);
+$arr = [20, 30, 69];
+foreach ($arr as $value) {
+    $viso += $value;
+    print $value . '<br>';
+}
+print "suma: $viso";
+var_dump($arr);
 
 ?>
 <html>
