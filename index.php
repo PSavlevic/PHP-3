@@ -1,24 +1,45 @@
 <?php
 
-$array = [
-    'petras_pizdzius' => [
-        'name' => 'Petras Pizdzius',
-        'daiktas' => 'Telefonas',
-        'bukle' => 'Prapistas' 
+$saldytuvas = [
+    'pirma_lentyna' => [
+        'kiausiniai' => [
+                'name' => 'Pizdati kiausiniai',
+                'kiekis' => 3,
         ],
-    'tomas_ablomas' => [
-        'name' => 'Tomas Ablomas',
-        'daiktas' => 'Buljonas',
-        'bukle' => 'Naudojamas',
+        'grietine' => [
+            'name' => 'Dvaro grietine',
+                'kiekis' => 1,
+        ],
+        'jogurtas' => [
+            'name' => 'Vilkavyskiu jogurtas',
+                'kiekis' => 2,
+        ],
+        'zuvis' => [
+            'name' => '',
+                'kiekis' => 0,
+        ],
+        ],
+    'antra_lentyna' => [
+        'pienas' => [
+            'name' => 'Dvaro pienas',
+            'kiekis' => 1,
+        ],
+        'kefyras' => [
+            'name' => '',
+            'kiekis' => 0,
+        ],
+        'degtine' => [
+            'name' => 'Stumbro degtine',
+            'kiekis' => 2,
+        ],
+        'kecupas' => [
+            'name' => 'Kucupas"Cumak"',
+            'kiekis' => 2,
+        ],
     ],
-    'ana_shitkova' => [
-        'name' => 'Ana Shitkova',
-        'daiktas' => 'Rulonas',
-        'bukle' => 'Pasibaiges',
-    ]
 ];
 
-var_dump($array);
+var_dump($saldytuvas);
 
 ?>
 <html>
@@ -28,6 +49,5 @@ var_dump($array);
 </head>
 <body>
 
-</div>
 </body>
 </html>
