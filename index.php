@@ -3,29 +3,29 @@
 $saldytuvas = [
     'pirma_lentyna' => [
         'kiausiniai' => [
-                'name' => 'Pizdati kiausiniai',
-                'kiekis' => 3,
+            'name' => 'Pizdati kiausiniai',
+            'kiekis' => 3,
         ],
         'grietine' => [
             'name' => 'Dvaro grietine',
-                'kiekis' => 1,
+            'kiekis' => 1,
         ],
         'jogurtas' => [
             'name' => 'Vilkavyskiu jogurtas',
-                'kiekis' => 2,
+            'kiekis' => 2,
         ],
         'zuvis' => [
-            'name' => '',
-                'kiekis' => 0,
+            'name' => 'Zuvis',
+            'kiekis' => 0,
         ],
-        ],
+    ],
     'antra_lentyna' => [
         'pienas' => [
             'name' => 'Dvaro pienas',
             'kiekis' => 1,
         ],
         'kefyras' => [
-            'name' => '',
+            'name' => 'Kefyras',
             'kiekis' => 0,
         ],
         'degtine' => [
