@@ -1,11 +1,14 @@
 <?php
-//ARRAY
+//ARRAY2
 
-$array1 = [
-        'Obuolys', 'Apelsinas', 'Cukinija'
+$saldytuvas = [
+
+    'produktai' => 'du dideli kiausiniai', 'vienas mazas baklazanas',
+    'indas1' => 'vienas didelis grietines indelis'
+    
 ];
 
-var_dump($array2);
+var_dump($saldytuvas);
 
 ?>
 <!DOCTYPE html>
@@ -13,7 +16,6 @@ var_dump($array2);
 <head>
     <title>ciklai</title>
     <link rel="stylesheet" type="text/css" href="css/style.css">
-
 </head>
 <body>
 
