@@ -1,24 +1,16 @@
 <?php
-//GRIKIAI su dienu (kintamasis 'praejo dienu')
+
 $grikiai_start = 5000;
-$grikiai = $grikiai_start;
-$survive_days = 0;
-$result = "";
+$praejo_dienu = 0;
 
-
-
-for ($day = 1; $day < 100; $day++) {
-    $sunaudojimas = rand(200, 500);
-    if ($grikiai >= 500) {
-        $grikiai -=$sunaudojimas;
-        $survive_days++;
-        $result .= "Grikiu yra $grikiai per $survive_days dienas." . '<br>';
-    } else {
-        $result .= "Paskutine diena $survive_days. Grikiu liko $grikiai" . '<br>';
-        break;
-    }
+for ($grikiai = $grikiai_start; $grikiai > 0; $grikiai -= rand(200, 500)) {
+    $praejo_dienu++;
+    //print "suvalgysiu $per_diena ir liks $grikiai grikiu <br>";
 }
 
+$date = date('Y-M-d', strtotime("+$praejo_dienu days"));
+$text = "Jei turesiu $grikiai_start g. grikiu, valgysiu juos $praejo_dienu dienu."
+    . " Jei pradesiu siandien, grikiai baigsis $date data";
 
 ?>
 <!DOCTYPE html>
@@ -28,8 +20,6 @@ for ($day = 1; $day < 100; $day++) {
     <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-
-    <?php print $result; ?>
-
+<p><?php print $text; ?></p>
 </body>
 </html>
