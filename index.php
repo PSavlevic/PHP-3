@@ -1,25 +1,35 @@
 <?php
+//GRIKIAI su dienu (kintamasis 'praejo dienu')
+$grikiai_start = 5000;
+$grikiai = $grikiai_start;
+$survive_days = 0;
+$result = "";
 
-$car_price_new = 30000; //Eurų
-$car_price = $car_price_new; // (% nuo esamos vertės per mėnesį)
-$santaupos = 15000;
 
-for ($m = 0; $car_price >= $santaupos; $m++){
-    $car_price -= round($car_price*0.02);
-    print "Car price at $m = $car_price<br>";
+
+for ($day = 1; $day < 100; $day++) {
+    $sunaudojimas = rand(200, 500);
+    if ($grikiai >= 500) {
+        $grikiai -=$sunaudojimas;
+        $survive_days++;
+        $result .= "Grikiu yra $grikiai per $survive_days dienas." . '<br>';
+    } else {
+        $result .= "Paskutine diena $survive_days. Grikiu liko $grikiai" . '<br>';
+        break;
+    }
 }
 
-$likutis = $santaupos - $car_price;
-$text = "Po $m menesiu, masinos verte bus $car_price. nusipirkus tau dar liks $likutis eur.";
 
 ?>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>asdv</title>
+    <title>ciklai</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-<p>
-    <?php print $text; ?>
-</p>
+
+    <?php print $result; ?>
+
 </body>
 </html>
