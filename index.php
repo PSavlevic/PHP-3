@@ -1,15 +1,18 @@
 <?php
 
-$viso = 0;
+$mano_atmintis = [
+   'Penktadienis',
+    'Paskaita',
+    'Baras',
+    'Viskis',
+    'Alus',
+    'Degtine',
+    'Alus',
+    'Pirmadienis',
+    'Paskaita',
+];
 
-$arr = [20, 30, 69];
-foreach ($arr as $value) {
-    $viso += $value;
-    print $value . '<br>';
-}
-print "suma: $viso";
-var_dump($arr);
-
+var_dump($mano_atmintis)
 ?>
 <html>
 <head>
@@ -17,6 +20,16 @@ var_dump($arr);
     <title>Array</title>
 </head>
 <body>
-
+    <h1>Kas buvo penktadieni?</h1>
+    <h2>Mano atmintis</h2>
+    <p>
+        <ul>
+            <?php foreach ($mano_atmintis as $value): ?>
+            <li>
+                <?php print $value;?>
+            </li>
+            <?php endforeach; ?>
+        </ul>
+    </p>
 </body>
 </html>
