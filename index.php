@@ -1,5 +1,7 @@
 <?php
 
+$bendra_atmintis = [];
+
 $mano_atmintis = [
     'Penktadienis',
     'Paskaita',
@@ -8,59 +10,43 @@ $mano_atmintis = [
     'Alus',
     'Degtine',
     'Alus',
+    'Cigarete',
     'Pirmadienis',
-    'Paskaita'
+
 ];
 
 $draugo_atmintis = [
     'Penktadienis',
     'Paskaita',
-    'Kavine',
-    'Sidras',
-    'Brendis',
-    'Mohito',
-    'Stripbaras',
-    'Pirmadienis',
-    'Paskaita',
-
+    'Alus',
+    'Dar vienas alutis',
+    'Tualetas',
+    'Cigarete',
+    'Alutis',
+    'Sokiai',
+    'Paskaita'
 ];
 
-$rand_flashback = rand(0, count($mano_atmintis) - 1);
-$rand_flashback = rand(0, count($draugo_atmintis) - 1);
-$text1 = "#$rand_flashback $mano_atmintis[$rand_flashback]";
-$text2 = "#$rand_flashback $draugo_atmintis[$rand_flashback]";
 
+foreach ($mano_atmintis as $value) {
+    $egzistuoja = in_array($value, $draugo_atmintis);
+    if ($egzistuoja) {
+        $bendra_atmintis[] = $value;
+    }
+}
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Klases daras</title>
+    <title>Klases darbas, 5-tadienis</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <h1>Kas buvo penktadienį ?!</h1>
-    <h2>Mano atmintis</h2>
-    <ul> <!-- foreach -->
-        <?php foreach ($mano_atmintis as $value): ?>
+    <?php foreach ($bendra_atmintis as $value): ?>
             <li>
-                <?php print $value; ?>
+                <?php print $value ?>
             </li>
-        <?php endforeach; ?>
-    </ul><!-- endforeach -->
-    <?php
-    print $text1;
-    ?>
-    <h2>Draugo atmintis</h2>
-    <ul> <!-- foreach -->
-        <?php foreach ($draugo_atmintis as $value_draugo): ?>
-            <li>
-                <?php print $value_draugo; ?>
-            </li>
-        <?php endforeach; ?>
-    </ul><!-- endforeach -->
-    <?php
-    print $text2;
-    ?>
+    <?php endforeach; ?>
 </body>
 </html>
