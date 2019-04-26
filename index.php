@@ -1,32 +1,64 @@
 <?php
 
-$vardas = 'Petras Jonaitis';
-$amzius = 27;
-$statusas = 'dirba'; //studijuoja, dirba, nedirba
+$mano_atmintis = [
+    'Penktadienis',
+    'Paskaita',
+    'Baras',
+    'Viskis',
+    'Alus',
+    'Degtine',
+    'Alus',
+    'Pirmadienis',
+    'Paskaita'
+];
 
-if ($amzius >= 0 && $amzius <18) {
-    echo $vardas . ' yra nepilanametis';
-    echo $vardas . ' netinkamas kariuomenei';
+$draugo_atmintis = [
+    'Penktadienis',
+    'Paskaita',
+    'Kavine',
+    'Sidras',
+    'Brendis',
+    'Mohito',
+    'Stripbaras',
+    'Pirmadienis',
+    'Paskaita',
 
-} elseif ($amzius >= 18 && $amzius < 65) {
-    echo $vardas . ' yra pilnametis';
+];
 
-    if ($amzius <= 26) {
-        if ($statusas == 'dirba' || $statusas == 'nedirba') {
-            echo $vardas . ' Tinkamas kariuomenei';
+$rand_flashback = rand(0, count($mano_atmintis) - 1);
+$rand_flashback = rand(0, count($draugo_atmintis) - 1);
 
-        } elseif($statusas == 'studijuoja') {
-            echo $vardas . ' netinkamas kariuomenei';
-        }
-    } elseif($amzius >= 27) {
-        echo $vardas . ' netinkamas kariuomenei';
-    }
-
-
-} elseif($amzius >=65) {
-    echo $vardas . ' yra pensininkas';
-    echo $vardas . ' netinkamas kariuomenei';
-
-} elseif($amzius < 0) {
-    echo 'Klaida. blogai nurodytas amzius';
-}
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Klases daras</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+    <h1>Kas buvo penktadienį ?!</h1>
+    <h2>Mano atmintis</h2>
+    <ul> <!-- foreach -->
+        <?php foreach ($mano_atmintis as $value): ?>
+            <li>
+                <?php print $value; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul><!-- endforeach -->
+    <?php
+    print '#' . $rand_flashback . ': ' . $mano_atmintis[$rand_flashback];
+    ?>
+    <h2>Draugo atmintis</h2>
+    <ul> <!-- foreach -->
+        <?php foreach ($draugo_atmintis as $value_draugo): ?>
+            <li>
+                <?php print $value_draugo; ?>
+            </li>
+        <?php endforeach; ?>
+    </ul><!-- endforeach -->
+    <?php
+    print '#' . $rand_flashback . ': ' . $draugo_atmintis[$rand_flashback];
+    ?>
+</body>
+</html>
