@@ -1,30 +1,32 @@
 <?php
 
-function amzius($amzius) {
-    if ($amzius < 0) {
-        return 'klaida';
+$vardas = 'Petras Jonaitis';
+$amzius = 27;
+$statusas = 'dirba'; //studijuoja, dirba, nedirba
+
+if ($amzius >= 0 && $amzius <18) {
+    echo $vardas . ' yra nepilanametis';
+    echo $vardas . ' netinkamas kariuomenei';
+
+} elseif ($amzius >= 18 && $amzius < 65) {
+    echo $vardas . ' yra pilnametis';
+
+    if ($amzius <= 26) {
+        if ($statusas == 'dirba' || $statusas == 'nedirba') {
+            echo $vardas . ' Tinkamas kariuomenei';
+
+        } elseif($statusas == 'studijuoja') {
+            echo $vardas . ' netinkamas kariuomenei';
+        }
+    } elseif($amzius >= 27) {
+        echo $vardas . ' netinkamas kariuomenei';
     }
-    if ($amzius <= 18) {
-        return 'nepilnametis';
-    } if ($amzius < 65) {
-        return 'pilnametis';
-    } if (66 < $amzius) {
-        return 'pensininkas';
-    }
+
+
+} elseif($amzius >=65) {
+    echo $vardas . ' yra pensininkas';
+    echo $vardas . ' netinkamas kariuomenei';
+
+} elseif($amzius < 0) {
+    echo 'Klaida. blogai nurodytas amzius';
 }
-
-print amzius(120);
-
-
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>ciklai</title>
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-
-</head>
-<body>
-
-</body>
-</html>
