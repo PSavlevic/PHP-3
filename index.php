@@ -27,6 +27,8 @@ $draugo_atmintis = [
 
 $rand_flashback = rand(0, count($mano_atmintis) - 1);
 $rand_flashback = rand(0, count($draugo_atmintis) - 1);
+$text1 = "#$rand_flashback $mano_atmintis[$rand_flashback]";
+$text2 = "#$rand_flashback $draugo_atmintis[$rand_flashback]";
 
 ?>
 <!DOCTYPE html>
@@ -47,7 +49,7 @@ $rand_flashback = rand(0, count($draugo_atmintis) - 1);
         <?php endforeach; ?>
     </ul><!-- endforeach -->
     <?php
-    print '#' . $rand_flashback . ': ' . $mano_atmintis[$rand_flashback];
+    print $text1;
     ?>
     <h2>Draugo atmintis</h2>
     <ul> <!-- foreach -->
@@ -58,7 +60,7 @@ $rand_flashback = rand(0, count($draugo_atmintis) - 1);
         <?php endforeach; ?>
     </ul><!-- endforeach -->
     <?php
-    print '#' . $rand_flashback . ': ' . $draugo_atmintis[$rand_flashback];
+    print $text2;
     ?>
 </body>
 </html>
