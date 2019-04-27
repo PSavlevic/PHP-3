@@ -8,7 +8,7 @@ $mano_atmintis = [
     'Baras',
     'Viskis',
     'Alus',
-    'Degtine',
+    'Alus',
     'Alus',
     'Cigarete',
     'Pirmadienis',
@@ -27,13 +27,25 @@ $draugo_atmintis = [
     'Paskaita'
 ];
 
-
-foreach ($mano_atmintis as $value) {
-    $egzistuoja = in_array($value, $draugo_atmintis);
-    if ($egzistuoja) {
-        $bendra_atmintis[] = $value;
+foreach ($mano_atmintis as $prisiminimas) {
+    $egzistuoja = in_array($prisiminimas, $draugo_atmintis);
+    $duplikuojasi = in_array($prisiminimas, $bendra_atmintis);
+    if ($egzistuoja && !$duplikuojasi) {
+        $bendra_atmintis[] = $prisiminimas;
     }
 }
+
+
+
+foreach ($mano_atmintis as $prisiminimas) {
+    $egzistuoja = in_array($prisiminimas, $draugo_atmintis);
+    $duplikuojasi = in_array($prisiminimas,$bendra_atmintis);
+    if ($egzistuoja && !$duplikuojasi) {
+        $bendra_atmintis[] = $prisiminimas;
+    }
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
