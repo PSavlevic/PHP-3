@@ -1,31 +1,28 @@
 <?php
 
+$rasinys =
 $zodziai = [
     'lauke', 'ryte', 'prie', 'Maxima', 'masina',
 ];
 
-$atrinkti_zodziai = [];
-foreach ($zodziai as $zodis) {
-    $pateko= rand(0, 1);
-    if ($pateko) {
-        $atrinkti_zodziai[] = $zodis;
-    }
+$rasinio_ilgis = rand(100, 300);
+
+for ($katiusa=0; $katiusa < $rasinio_ilgis; $katiusa++) {
+    $random_index = rand(0, count($zodziai)-1);
+    $random_zodis = $zodziai[$random_index];
+    $rasinys[] = $random_zodis;
 }
+
+var_dump($rasinys);
 
 ?>
 <!DOCTYPE html>
 <html>
-<head>
-    <title>Ataskaita</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
-
-</head>
-<body>
-    <p>
-        <?php foreach($atrinkti_zodziai as $value): ?>
-        <?php print $value . '<br>'?>
-        <?php endforeach; ?>
-    </p>
-</body>
+    <head>
+        <title>Ataskaita</title>
+        <meta charset="utf-8">
+        <link rel="stylesheet" type="text/css" href="style.css">
+    </head>
+    <body>
+    </body>
 </html>
