@@ -1,42 +1,16 @@
 <?php
 
-$ataskaita = [
-    [
-        'name' => 'IKI Darbo Uzmokestis',
-        'amount' => '600',
-    ],
-    [
-        'name' => 'Kalvariju Nacnykas',
-        'amount' => '-15',
-    ],
-    [
-        'name' => 'Limonas',
-        'amount' => '-120',
-    ],
-    [
-        'name' => 'Vovkos garazas',
-        'amount' => '-340',
-    ],
+$zodziai = [
+    'lauke', 'ryte', 'prie', 'Maxima', 'masina',
 ];
 
-$visos_islaidos = 0;
-$visos_iplaukos = 0;
-$balansas = 0;
-
-foreach ($ataskaita as $index => $irasas) {
-    if ($irasas['amount'] > 0) {
-        $css_class = 'positive';
-        $visos_iplaukos += $irasas['amount'];
-    } else {
-        $css_class = 'negative';
-        $visos_islaidos -= $irasas['amount'];
+$atrinkti_zodziai = [];
+foreach ($zodziai as $zodis) {
+    $pateko= rand(0, 1);
+    if ($pateko) {
+        $atrinkti_zodziai[] = $zodis;
     }
-
-    $ataskaita[$index]['css_class'] = $css_class;
-    $balansas += $irasas['amount'];
 }
-
-$text = "Balansas yra lygu $balansas, Visos islaidos $visos_islaidos ,o iplaukos yra lygu $visos_iplaukos."
 
 ?>
 <!DOCTYPE html>
@@ -45,26 +19,13 @@ $text = "Balansas yra lygu $balansas, Visos islaidos $visos_islaidos ,o iplaukos
     <title>Ataskaita</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
-    <style>
-        .positive {
-            color: green;
-        }
-        .negative {
-            color: red;
-        }
-    </style>
+
 </head>
 <body>
-    <ul>
-        <?php foreach ($ataskaita as $irasas): ?>
-            <li class="<?php print $irasas['css_class']; ?>">
-                <span><?php print $irasas['name']; ?></span>
-                <span><?php print $irasas['amount']; ?></span>
-            </li>
-        <?php endforeach; ?>
-    </ul>
     <p>
-        <?php print $text; ?>
+        <?php foreach($atrinkti_zodziai as $value): ?>
+        <?php print $value . '<br>'?>
+        <?php endforeach; ?>
     </p>
 </body>
 </html>
