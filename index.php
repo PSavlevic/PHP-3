@@ -21,10 +21,11 @@ $ataskaita = [
 
 foreach ($ataskaita as $index => $irasas) {
     if ($irasas['amount'] > 0) {
-        $ataskaita[$index]['css_class'] = 'positive';
+        $css_class = 'positive';
     } else {
-        $ataskaita[$index]['css_class'] = 'negative';
+        $css_class = 'negative';
     }
+    $ataskaita[$index]['css_class'] = $css_class;
 }
 
 ?>
