@@ -1,15 +1,31 @@
 <?php
-$rasinys =[];
-$zodziai = [
-    'lauke', 'ryte', 'prie', 'Maxima', 'masina',
+
+$gerimai = [
+
+    [
+        'name' => 'Vilkmerges Alus',
+        'kaina' => 4.50,
+        'nuolaida' => 0
+    ],
+    [
+        'name' => 'Stumbro Degtine',
+        'kaina' => 8.50,
+        'nuolaida' => 10
+    ],
+    [
+        'name' => 'Riesling vynas',
+        'kaina' => 11.50,
+        'nuolaida' => 15
+    ],
+    [
+        'name' => 'Cider sidras',
+        'kaina' => 3.50,
+        'nuolaida' => 25
+    ],
 ];
-$rasinio_ilgis = rand(100, 300);
-for ($katiusa=0; $katiusa < $rasinio_ilgis; $katiusa++) {
-    $random_index = rand(0, count($zodziai)-1);
-    $random_zodis = $zodziai[$random_index];
-    $rasinys[] = $random_zodis;
-}
-//var_dump($rasinys);
+
+var_dump($gerimai);
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -19,10 +35,6 @@ for ($katiusa=0; $katiusa < $rasinio_ilgis; $katiusa++) {
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
-    <ul>
-        <?php foreach ($rasinys as $value): ?>
-            <li> <?php print $value; ?></li>
-        <?php endforeach; ?>
-    </ul>
+
 </body>
 </html>
