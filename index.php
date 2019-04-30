@@ -1,39 +1,19 @@
 <?php
 
-$daiktai = [
-    [
-        'name' => 'Kremas',
-        'size' => '5',
-        'color' => 'tamsus'
-    ],
-    [
-        'name' => 'Riešutai',
-        'size' => '10',
-        'color' => 'tamsus'
-    ],
-    [
-        'name' => 'Lupdažis',
-        'size' => '2',
-        'color' => 'šviesus'
-    ],
-    [
-        'name' => 'Kojinės',
-        'size' => '12',
-        'color' => 'tamsus'
-    ]
+$daiktai = [ 'Kremas', 'Riesutai', 'Lupdazis', 'Kojines'
 ];
+$size = rand(1, 10);
+$is_dark = rand(0, 1);
+$rand_name = rand(0, count($daiktai)-1);
 
-//random masyvas
-$random_name = $daiktai[rand(0, count($daiktai) - 1)];
-
-//randomina name su atsitiktiniu skaiciumi
-$name = $random_name['name'];
-
-//randomina size su atsitiktiniu skaiciumi (tuo paciu kaip $name)
-$size = $random_name['size'];
-
-//randomina tamsus/sviesus su atsitiktiniu skaiciumi (tuo paciu kaip $name)
-$color = $random_name['color'];
+//randomina tamsius/sviesus
+if ($is_dark) {
+    $color = 'tamsus';
+} else {
+    $color = 'sviesus';
+}
+//spausdinamas tekstas
+$text = "$daiktai[$rand_name] uzima $size cm3. Daiktas $color";
 
 ?>
 
@@ -46,7 +26,7 @@ $color = $random_name['color'];
 </head>
 <body>
 <p>
-    <?php print $name?> užima <?php print $size?> cm3. Daiktas <?php print $color ?>.
+    <?php print $text; ?>.
 </p>
 </body>
 </html>
