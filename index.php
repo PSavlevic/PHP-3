@@ -27,6 +27,7 @@ $gerimai = [
 foreach ($gerimai as $index => $gerimas) {
     if($gerimas['nuolaida'] > 0) {
         $css_class = 'su_akcija';
+       $gerimai[$index]['kaina'] *= (100 - $gerimas['nuolaida']) / 100;
     } else {
         $css_class = 'be_akcijos';
     }
