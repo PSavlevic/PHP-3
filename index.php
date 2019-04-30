@@ -1,38 +1,28 @@
 <?php
 
-$gerimai = [
-    [
-        'name' => 'Vilkmerges alus',
-        'kaina' => 4.50,
-        'nuolaida' => 0
-    ],
-    [
-        'name' => 'Stumbro degtine',
-        'kaina' => 8.50,
-        'nuolaida' => 10
-    ],
-    [
-        'name' => 'Svyturio alus',
-        'kaina' => 3.50,
-        'nuolaida' => 15
-    ],
-    [
-        'name' => 'Zemaitijos pienas',
-        'kaina' => 1.50,
-        'nuolaida' => 30
-    ],
-];
-
-foreach ($gerimai as $index => &$gerimas) {
-    //$gerimai[$index]['css_class'] = 'dfkasdf';
-
-    if ($gerimas['nuolaida'] > 0) {
-        $gerimas['css_class'] = 'big_font';
-    } else {
-        $gerimas['css_class'] = 'small_font';
+$array = [12, 43, 654, 23];
+function avg($array) {
+    $sum = 0;
+    foreach ($array as $value) {
+        $sum += $value;
     }
+    return ($sum/count($array));
 }
+print avg($array);
 
-unset($gerimas);
+?>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="refresh" content="1">
+    <title>title</title>
+    <link rel="stylesheet" href="css/normalize.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
 
-var_dump($gerimai);
+
+</body>
+</html>
