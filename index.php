@@ -24,7 +24,15 @@ $gerimai = [
     ],
 ];
 
-var_dump($gerimai);
+foreach ($gerimai as $index => $gerimas) {
+    if($gerimas['nuolaida'] > 0) {
+        $css_class = 'su_akcija';
+    } else {
+        $css_class = 'be_akcijos';
+    }
+    $gerimai[$index]['css_class'] = $css_class;
+}
+//var_dump($gerimai);
 
 ?>
 <!DOCTYPE html>
@@ -33,8 +41,25 @@ var_dump($gerimai);
     <title>Ataskaita</title>
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="style.css">
+    <style>
+
+        .su_akcija {
+            font-size: larger;
+        }
+
+        .be_akcijos {
+            font-size: smaller;
+        }
+    </style>
 </head>
 <body>
-
+    <ul>
+        <?php foreach ($gerimai as $gerimas): ?>
+        <li class="<?php print $gerimas['css_class']; ?>">
+            <span><?php print $gerimas['name']; ?></span>
+            <span><?php print $gerimas['kaina']; ?></span>
+        </li>
+        <?php endforeach; ?>
+    </ul>
 </body>
 </html>
