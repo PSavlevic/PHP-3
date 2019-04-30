@@ -1,4 +1,5 @@
 <?php
+
 $gerimai = [
     [
         'name' => 'Vilkmerges alus',
@@ -22,44 +23,16 @@ $gerimai = [
     ],
 ];
 
-foreach ($gerimai as $index => $gerimas) {
+foreach ($gerimai as $index => &$gerimas) {
+    //$gerimai[$index]['css_class'] = 'dfkasdf';
+
     if ($gerimas['nuolaida'] > 0) {
-        $gerimai[$index]['css_class'] = 'big_font';
-        $kaina_su_nuolaida = round($gerimas['kaina'] * (100 - $gerimas['nuolaida']) / 100);
-        $gerimai[$index]['kaina_su_nuolaida'] = $kaina_su_nuolaida;
+        $gerimas['css_class'] = 'big_font';
     } else {
-        $gerimai[$index]['css_class'] = 'small_font';
+        $gerimas['css_class'] = 'small_font';
     }
 }
 
-?>
-<!DOCTYPE html>
-<html>
-<head>
-    <title>Gerimai</title>
-    <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <style>
-        .big_font {
-            font-size: 50px;
-        }
+unset($gerimas);
 
-        .big_font .kaina {
-            text-decoration: line-through;
-        }
-    </style>
-</head>
-<body>
-<ul>
-    <?php foreach ($gerimai as $gerimas): ?>
-        <li class="<?php print $gerimas['css_class']; ?>">
-            <span><?php print $gerimas['name']; ?></span>
-            <?php if (isset($gerimas['kaina_su_nuolaida'])): ?>
-                <span><?php print $gerimas['kaina_su_nuolaida']; ?></span>
-            <?php endif; ?>
-            <span class="kaina"><?php print $gerimas['kaina']; ?></span>
-        </li>
-    <?php endforeach; ?>
-</ul>
-</body>
-</html>
+var_dump($gerimai);
