@@ -1,66 +1,65 @@
 <?php
-
 $gerimai = [
-
     [
-        'name' => 'Vilkmerges Alus',
+        'name' => 'Vilkmerges alus',
         'kaina' => 4.50,
         'nuolaida' => 0
     ],
     [
-        'name' => 'Stumbro Degtine',
+        'name' => 'Stumbro degtine',
         'kaina' => 8.50,
         'nuolaida' => 10
     ],
     [
-        'name' => 'Riesling vynas',
-        'kaina' => 11.50,
+        'name' => 'Svyturio alus',
+        'kaina' => 3.50,
         'nuolaida' => 15
     ],
     [
-        'name' => 'Cider sidras',
-        'kaina' => 3.50,
-        'nuolaida' => 25
+        'name' => 'Zemaitijos pienas',
+        'kaina' => 1.50,
+        'nuolaida' => 30
     ],
 ];
 
 foreach ($gerimai as $index => $gerimas) {
-    if($gerimas['nuolaida'] > 0) {
-        $css_class = 'su_akcija';
-       $gerimai[$index]['kaina'] *= (100 - $gerimas['nuolaida']) / 100;
+    if ($gerimas['nuolaida'] > 0) {
+        $gerimai[$index]['css_class'] = 'big_font';
+        $kaina_su_nuolaida = round($gerimas['kaina'] * (100 - $gerimas['nuolaida']) / 100);
+        $gerimai[$index]['kaina_su_nuolaida'] = $kaina_su_nuolaida;
     } else {
-        $css_class = 'be_akcijos';
+        $gerimai[$index]['css_class'] = 'small_font';
     }
-    $gerimai[$index]['css_class'] = $css_class;
 }
-//var_dump($gerimai);
 
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Ataskaita</title>
+    <title>Gerimai</title>
     <meta charset="utf-8">
-    <link rel="stylesheet" type="text/css" href="style.css">
+    <link rel="stylesheet" type="text/css" href="css/style.css">
     <style>
-
-        .su_akcija {
-            font-size: larger;
+        .big_font {
+            font-size: 50px;
         }
 
-        .be_akcijos {
-            font-size: smaller;
+        .big_font .kaina {
+            text-decoration: line-through;
         }
     </style>
 </head>
 <body>
-    <ul>
-        <?php foreach ($gerimai as $gerimas): ?>
+<ul>
+    <?php foreach ($gerimai as $gerimas): ?>
         <li class="<?php print $gerimas['css_class']; ?>">
             <span><?php print $gerimas['name']; ?></span>
-            <span><?php print $gerimas['kaina']; ?></span>
+            <?php if (isset($gerimas['kaina_su_nuolaida'])): ?>
+                <span><?php print $gerimas['kaina_su_nuolaida']; ?></span>
+            <?php endif; ?>
+            <span class="kaina"><?php print $gerimas['kaina']; ?></span>
         </li>
-        <?php endforeach; ?>
-    </ul>
+    <?php endforeach; ?>
+</ul>
 </body>
 </html>
