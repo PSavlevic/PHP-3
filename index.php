@@ -1,8 +1,21 @@
 <?php
-function tinkamis_zodis($text) {
-    return str_replace('blet', '****', $text);
-}
+/**
+ * @return array sugeneruotas 5x5 arrejus (1 uzd)
+ */
+function slot_run() {
+$arr = [];
 
+    for ($x=1; $x<=5;$x++) {
+        $row = [];
+
+        for ($y=1; $y<=5; $y++){
+            $row[] = rand(0, 1);
+        }
+        $arr[] = $row;
+    }
+    return $arr;
+}
+var_dump(slot_run());
 ?>
 
 <!DOCTYPE html>
@@ -13,6 +26,5 @@ function tinkamis_zodis($text) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <?php print tinkamis_zodis('Contrary to popular blet belief,  of Lorem Ipsum, "Lorem ipsum dolor sit amet..", comes from a line in section 1.10.32.'); ?>
 </body>
 </html>
