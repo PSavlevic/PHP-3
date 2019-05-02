@@ -1,21 +1,22 @@
 <?php
 /**
- * @return array sugeneruotas 5x5 arrejus (1 uzd)
+ * @return array sugeneruotas $size arrejus (2 uzd)
  */
-function slot_run() {
+function slot_run($size) {
 $arr = [];
 
-    for ($x=1; $x<=5;$x++) {
+    for ($x=1; $x<=$size;$x++) {
         $row = [];
 
-        for ($y=1; $y<=5; $y++){
+        for ($y=1; $y<=$size; $y++){
             $row[] = rand(0, 1);
         }
         $arr[] = $row;
     }
     return $arr;
 }
-var_dump(slot_run());
+var_dump(slot_run(7));
+
 ?>
 
 <!DOCTYPE html>
