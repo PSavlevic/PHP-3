@@ -5,7 +5,8 @@
  * @param integer $size Matricos dydis
  * @return array
  */
-function slot_run($size) {
+function slot_run($size)
+{
     $array = [];
 
     for ($x = 1; $x <= $size; $x++) {
@@ -21,20 +22,21 @@ function slot_run($size) {
     return $array;
 }
 
-function winning_slot($matrix){
+function winning_slot($matrix)
+{
     $winning_rows = [];
 
-    foreach ($matrix as $index => $row){
+    foreach ($matrix as $index => $row) {
         $row_winning_sum = count($row);
         $column_sum = 0;
 
-        foreach ($row as $column){
+        foreach ($row as $column) {
             $column_sum += $column;
         }
-        if ($row_winning_sum == $column_sum){
+        if ($row_winning_sum == $column_sum) {
             $winning_rows[] = $index;
         }
-        if ($column_sum == 0){
+        if ($column_sum == 0) {
             $winning_rows[] = $index;
         }
     }
@@ -46,6 +48,13 @@ function winning_slot($matrix){
 $array = slot_run(3);
 $winning_rows = winning_slot($array);
 var_dump($winning_rows);
+
+$winning = count($winning_rows);  // 5 uzduotis
+if ($winning > 0) {
+    $text = "Tau iskrito $winning tu laimejai!!!";
+} else {
+    $text = 'Tau pazd3c you lost';
+}
 
 ?>
 <!DOCTYPE html>
@@ -62,6 +71,7 @@ var_dump($winning_rows);
             height: 5vh;
             width: 5vh;
         }
+
         section {
             display: flex;
             justify-content: center;
@@ -78,6 +88,7 @@ var_dump($winning_rows);
     </style>
 </head>
 <body>
+<p><?php print $text; ?></p>  <!-- 5 uzduotis
 <?php foreach ($array as $index => $value): ?>
     <section>
         <?php foreach ($value as $index => $random): ?>
@@ -89,5 +100,6 @@ var_dump($winning_rows);
         <?php endforeach; ?>
     </section>
 <?php endforeach; ?>
+
 </body>
 </html>
