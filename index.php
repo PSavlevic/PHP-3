@@ -88,7 +88,7 @@ if ($winning > 0) {
     </style>
 </head>
 <body>
-<p><?php print $text; ?></p>  <!-- 5 uzduotis
+<p><?php print $text; ?></p>  <!-- 5 uzduotis -->
 <?php foreach ($array as $index => $value): ?>
     <section>
         <?php foreach ($value as $index => $random): ?>
