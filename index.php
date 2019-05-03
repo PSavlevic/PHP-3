@@ -1,60 +1,36 @@
 <?php
 
-/**
- * Generuoja dinaminę matricą
- * @param integer $size Matricos dydis
- * @return array
- */
-function slot_run($size)
-{
-    $array = [];
+$arr = [
+    ['data1',
+        'data2',
+        'data3',
+        'data4',
+        'data5',
+        '',
+        'data6',
+        'data7',
+        'data8',
+        'data9',
+        'data10',
+        'data11',
+        'data12',
+        'data13',
+        'data14',
+        'data15',],
+    ['Visa darbo diena',
+        6, 8, 10, 12, 14, '', 14, 16, 14, 12, 18, 18, 15, 15],
+    ['Puse darbo dienos',
+        4, 4, 4, 4, 4, '', 4, 4, 4, 4, 4, 4, 4, 4
+    ],
+    ['Darbuotoju skaicius',
+        8, 10, 12, 14, 16, '', 16, 18, 16, 14, 20, 20, 17, 17
+    ],
+];
 
-    for ($x = 1; $x <= $size; $x++) {
-        $row = [];
-
-        for ($z = 1; $z <= $size; $z++) {
-            $row[] = rand(0, 1);
-        }
-
-        $array[] = $row;
-    }
-
-    return $array;
-}
-
-function winning_slot($matrix)
-{
-    $winning_rows = [];
-
-    foreach ($matrix as $index => $row) {
-        $row_winning_sum = count($row);
-        $column_sum = 0;
-
-        foreach ($row as $column) {
-            $column_sum += $column;
-        }
-        if ($row_winning_sum == $column_sum) {
-            $winning_rows[] = $index;
-        }
-        if ($column_sum == 0) {
-            $winning_rows[] = $index;
-        }
-    }
-
-    return $winning_rows;
-}
-
-//var_dump(slot_run(10));
-$array = slot_run(3);
-$winning_rows = winning_slot($array);
-var_dump($winning_rows);
-
-$winning = count($winning_rows);  // 5 uzduotis
-if ($winning > 0) {
-    $text = "Tau iskrito $winning tu laimejai!!!";
-} else {
-    $text = 'Tau pazd3c you lost';
-}
+//foreach ($arr[1] as $row_index => $row_array) {
+//   print $row_array;
+//
+//}
 
 ?>
 <!DOCTYPE html>
@@ -64,42 +40,20 @@ if ($winning > 0) {
     <meta charset="utf-8">
     <link rel="stylesheet" type="text/css" href="css/style.css">
     <style>
-        div {
-            border: 3px solid black;
-            padding: 20px;
-            margin: 20px;
-            height: 5vh;
-            width: 5vh;
-        }
-
-        section {
-            display: flex;
-            justify-content: center;
-            align-items: baseline;
-        }
-
-        .yellow {
-            background-color: blue;
-        }
-
-        .green {
-            background-color: orange;
+        .remelis {
+            border: 1px solid black;
+            padding: 10px;
+            width: 15%;
+            margin: auto;
+            display: inline-block;
         }
     </style>
 </head>
 <body>
-<p><?php print $text; ?></p>  <!-- 5 uzduotis -->
-<?php foreach ($array as $index => $value): ?>
-    <section>
-        <?php foreach ($value as $index => $random): ?>
-            <?php if ($random): ?>
-                <div class="yellow"></div>
-            <?php else: ?>
-                <div class="green"></div>
-            <?php endif; ?>
-        <?php endforeach; ?>
-    </section>
+<?php foreach ($arr[1] as $row_index => $row_array): ?>
+<div class="remelis">
+    <?php print $row_array; ?>
+</div>
 <?php endforeach; ?>
-
 </body>
 </html>
