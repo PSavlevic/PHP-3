@@ -1,42 +1,44 @@
 <?php
 
-$panos = [
+$merginos = [
     [
         'vardas' => 'Monika',
         'grazi' => true,
         'protinga' => false,
     ],
     [
-        'vardas' => 'Greta',
+        'vardas' => 'Kotryna',
         'grazi' => true,
         'protinga' => true,
     ],
     [
-        'vardas' => 'Egle',
-        'grazi' => false,
+        'vardas' => 'Migle',
+        'grazi' => true,
         'protinga' => false,
     ],
     [
-        'vardas' => 'Agne',
-        'grazi' => false,
+        'vardas' => 'Laura',
+        'grazi' => true,
         'protinga' => true,
-    ]
+    ],
 ];
 
-function grazios_protingos($merginos) {
-    $grazios_protingos = [];
-
-    foreach ($merginos as $mergina) {
-        if ($mergina['grazi'] && $mergina['protinga']) {
-            $grazios_protingos[] = $mergina;
-        }
-    }
-
-    return $grazios_protingos;
+function vardai ($names){
+    $random_index = rand(0, count($names) - 1);
+    return $names[$random_index]['vardas'];
 }
 
-$zmonos = grazios_protingos($panos);
-
-var_dump($zmonos);
+$random_mergina = vardai($merginos);
 
 ?>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hey Hey</title>
+</head>
+<body>
+<p>
+    <?php print $random_mergina; ?>
+</p>
+</body>
+</html>
