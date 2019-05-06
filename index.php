@@ -1,39 +1,42 @@
 <?php
 
-function pilnametis ($name, $age) {
-    if ($age >= 18) {
-        print $name . ' pilnametis';
-    } else {
-        print $name . ' nepilnametis';
-    }
-}
+$panos = [
+    [
+        'vardas' => 'Monika',
+        'grazi' => true,
+        'protinga' => false,
+    ],
+    [
+        'vardas' => 'Greta',
+        'grazi' => true,
+        'protinga' => true,
+    ],
+    [
+        'vardas' => 'Egle',
+        'grazi' => false,
+        'protinga' => false,
+    ],
+    [
+        'vardas' => 'Agne',
+        'grazi' => false,
+        'protinga' => true,
+    ]
+];
 
-//pilnametis('Darius', 19);
+function grazios_protingos($merginos) {
+    $grazios_protingos = [];
 
-function nupirktAlaus($age, $gender) {
-    if ($age >= 20) {
-        print 'pilnametis ir gali nupirkti!';
-        if ($gender == 'man') {
-            print ' Tikrai gausi alaus, nes esi vyras!';
-        } else {
-            print ' Gal gausi alaus o gal ir ne... nes esi moteris';
+    foreach ($merginos as $mergina) {
+        if ($mergina['grazi'] && $mergina['protinga']) {
+            $grazios_protingos[] = $mergina;
         }
-    } else {
-        print ' nepilnametis ir gali nupirkti';
     }
+
+    return $grazios_protingos;
 }
 
-print nupirktAlaus(25, 'woman');
+$zmonos = grazios_protingos($panos);
+
+var_dump($zmonos);
 
 ?>
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <title>title</title>
-</head>
-<body>
-
-
-</body>
-</html>
