@@ -13,12 +13,10 @@ if (!empty ($_POST)) {
 <head>
     <meta charset="UTF-8">
     <title>title</title>
-    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
     <form action="index.php" method="post">
-    <button name="patvirtinimas" value="<?php print $result; ?>"> <?php print $result; ?> </button>
-    <input type="reset" name="reset">
+        <button name="patvirtinimas" value="<?php print $result; ?>"><?php print $result; ?></button>
     </form>
 </body>
 </html>
