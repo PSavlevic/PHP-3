@@ -1,16 +1,21 @@
 <?php
+/**
+ *  parasyti f-cija, kuri suskaiciuotu kiek masyve $array yra elementu su $val vertemis
+ */
+$array = ['b', 'x', 'x', 'b', 's'];
 
-$sheep = ['miau'];
 
-for ($x = 0; $x < 5; $x++){
-    $sheep[] = &$sheep[$x];
+function count_values($array, $val)
+{
+    $atrinktieji = 0;
+    foreach ($array as $value) {
+        if ($value == $val) {
+            $atrinktieji++;
+        }
+    }
+    return $atrinktieji;
 }
 
-foreach ($sheep as $key => $value) {
-    unset($sheep[$key]);
-    $sheep[$key] = $value;
-}
+print count_values($array, 'x');
 
-$sheep[2] = 'au au au';
-
-var_dump($sheep);
+?>
