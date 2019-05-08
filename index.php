@@ -1,21 +1,18 @@
 <?php
 /**
- *  parasyti f-cija, kuri suskaiciuotu kiek masyve $array yra elementu su $val vertemis
+ *  parasyti f-cija, kuri visus elementus lygius $val_from pakeistu i $val_to. Funkcija turi veikti referencu pagalba, be returno
  */
 $array = ['b', 'x', 'x', 'b', 's'];
 
+function change_values(&$array, $val_from, $val_to) {
 
-function count_values($array, $val)
-{
-    $atrinktieji = 0;
-    foreach ($array as $value) {
-        if ($value == $val) {
-            $atrinktieji++;
+    foreach ($array as &$value) {
+        if ($value == $val_from) {
+            $value = $val_to;
         }
     }
-    return $atrinktieji;
 }
-
-print count_values($array, 'x');
+change_values($array, 'x', 'M');
+var_dump($array);
 
 ?>
