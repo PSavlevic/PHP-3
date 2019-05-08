@@ -1,15 +1,12 @@
 <?php
 
-if (isset ($_POST['patvirtinimas'])) {
-    $result = square($_POST['skaicius']);
+if (!empty ($_POST)) {
+    $result = ($_POST['patvirtinimas']);
+    $result++;
 } else {
-    $result = ' ivesk skaiciu';
+    $result = '0';
 }
 
-function square($x)
-{
-    return $x ** 2;
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -20,10 +17,8 @@ function square($x)
 </head>
 <body>
     <form action="index.php" method="post">
-        <span>Ka pakelti kvadratu:</span>
-        <input type="text" name="skaicius">
-        <input type="submit" name="patvirtinimas">
+    <button name="patvirtinimas" value="<?php print $result; ?>"> <?php print $result; ?> </button>
+    <input type="reset" name="reset">
     </form>
-    <h1><?php print "Atsakymas:" . $result; ?></h1>
 </body>
 </html>
