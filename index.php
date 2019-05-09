@@ -1,26 +1,35 @@
 <?php
 
-if (!empty ($_POST)) {
-    $result = ($_POST['patvirtinimas']);
-    $result++;
-} else {
-    $result = '0';
+$vardas = '';
+$pavarde = '';
+$amzius = '';
+$lygis = '';
+
+if (!empty($_POST['vardas']) && !empty($_POST['pavarde'])) {
+    $vardas = $_POST['vardas'];
+    $pavarde = $_POST['pavarde'];
+    $amzius = $_POST['amzius'];
+    $lygis = $_POST['lygis'];
 }
 
 ?>
-<!DOCTYPE html>
 <html>
-<head>
-    <meta charset="UTF-8">
-    <title>title</title>
-</head>
+<head></head>
 <body>
-    <form action="index.php" method="post">
-        <button name="patvirtinimas" value="<?php print $result; ?>"><?php print $result; ?></button>
+    <form method="post">
+        <input type="text" name="vardas" placeholder="vardas" required>
+        <input type="text" name="pavarde" placeholder="pavarde" required>
+        <input type="number" name="amzius" placeholder="amzius" min="18" max="99">
+        <select name="lygis">
+            <option value="pazenges" name="pazenges">pazenges</option>
+            <option value="profesionalas" name="profesionalas">profesionalas</option>
+            <option value="pradedantysis" name="pradedantysis" selected>pradedantysis</option>
+        </select>
+        <button name="button" value="push">Siusti</button>
     </form>
-    <?php for ($x = 0; $x < $result; $x++): ?>
-        <img src="https://static.vecteezy.com/system/resources/thumbnails/000/436/882/small/Food__28466_29.jpg?1555154176?nocache=true&cache_buster=47420021-b716-44c8-a3c2-cff4d975dda2"
-             alt="">
-    <?php endfor; ?>
+    <h1>Vardas: <?php print $vardas; ?></h1>
+    <h1>Pavarde: <?php print $pavarde; ?></h1>
+    <h1>Amzius: <?php print $amzius; ?></h1>
+    <h1>Lygis: <?php print $lygis?></h1>
 </body>
 </html>
